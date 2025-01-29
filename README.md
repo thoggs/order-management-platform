@@ -8,7 +8,7 @@ resiliência.
 
 ## Arquitetura
 
-(Inserir aqui a imagem do diagrama de arquitetura)
+![Arquitetura do Projeto](https://github.com/thoggs/order-management-platform/blob/main/img/project_architecture.png)
 
 ## Configuração das Variáveis de Ambiente
 
