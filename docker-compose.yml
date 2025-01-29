@@ -38,6 +38,17 @@ services:
     networks:
       - order-network
 
+  redis:
+    image: redis:7
+    container_name: order-cache
+    command: redis-server --save 60 1 --loglevel warning
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - order-network
+
 networks:
   order-network:
     driver: bridge
@@ -46,3 +57,4 @@ volumes:
   order_db_data:
   dispatch_db_data:
   order_message_broker_data:
+  redis_data:
