@@ -1,0 +1,46 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: order-message-broker
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - environments/rabbitmq.env
+    volumes:
+      - order_message_broker_data:/var/lib/rabbitmq
+    networks:
+      - order-network
+
+  order-db:
+    image: postgres:17
+    container_name: order-db
+    env_file:
+      - environments/order-db.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - order_db_data:/var/lib/postgresql/data
+    networks:
+      - order-network
+
+  dispatch-db:
+    image: postgres:17
+    container_name: dispatch-db
+    env_file:
+      - environments/dispatch-db.env
+    ports:
+      - "5433:5432"
+    volumes:
+      - dispatch_db_data:/var/lib/postgresql/data
+    networks:
+      - order-network
+
+networks:
+  order-network:
+    driver: bridge
+
+volumes:
+  order_db_data:
+  dispatch_db_data:
+  order_message_broker_data:
