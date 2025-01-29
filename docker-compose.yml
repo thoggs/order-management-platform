@@ -9,6 +9,8 @@ services:
       - environments/rabbitmq.env
     volumes:
       - order_message_broker_data:/var/lib/rabbitmq
+      - ./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./config/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
     networks:
       - order-network
 

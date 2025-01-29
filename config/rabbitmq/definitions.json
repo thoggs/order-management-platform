@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "password_hash": "nTrnSuLBC4NvENi0Er1bdoyVfJj0V5F08qfZqXcFJG8=",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": [
+        "administrator"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "user": "admin",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "queues": [
+    {
+      "name": "order.queue",
+      "vhost": "/",
+      "durable": true
+    },
+    {
+      "name": "dispatch.queue",
+      "vhost": "/",
+      "durable": true
+    },
+    {
+      "name": "processor.response.queue",
+      "vhost": "/",
+      "durable": true
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "order.exchange",
+      "vhost": "/",
+      "type": "direct",
+      "durable": true
+    },
+    {
+      "name": "dispatch.exchange",
+      "vhost": "/",
+      "type": "direct",
+      "durable": true
+    },
+    {
+      "name": "processor.response.exchange",
+      "vhost": "/",
+      "type": "direct",
+      "durable": true
+    }
+  ],
+  "bindings": [
+    {
+      "source": "order.exchange",
+      "vhost": "/",
+      "destination": "order.queue",
+      "destination_type": "queue",
+      "routing_key": "order.process"
+    },
+    {
+      "source": "dispatch.exchange",
+      "vhost": "/",
+      "destination": "dispatch.queue",
+      "destination_type": "queue",
+      "routing_key": "dispatch.process"
+    },
+    {
+      "source": "processor.response.exchange",
+      "vhost": "/",
+      "destination": "processor.response.queue",
+      "destination_type": "queue",
+      "routing_key": "processor.response"
+    }
+  ]
+}
