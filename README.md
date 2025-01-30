@@ -15,8 +15,7 @@ escalabilidade e resiliência.
 ### 1. Clonar o repositório
 
 ```sh
-git clone https://github.com/thoggs/order-management-platform.git
-cd order-management-platform
+git clone https://github.com/thoggs/order-management-platform.git && cd order-management-platform
 ```
 
 ### 2. Configurar variáveis de ambiente
