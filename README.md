@@ -127,6 +127,6 @@ O script enviará múltiplas requisições simulando uma carga alta na API.
 
 ## Considerações Finais
 
-O projeto está pronto para uso. Certifique-se de configurar corretamente todas as variáveis de ambiente antes de
-executar os containers.
+O projeto está pronto para uso. As variáveis de ambiente estão disponíveis na pasta `environments/` e podem ser editadas
+caso necessário antes de executar os containers.
 
