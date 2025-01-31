@@ -69,14 +69,6 @@ http://localhost:8282/swagger-ui/index.html?lang=pt-BR
 - Usuário: `admin`
 - Senha: `secret`
 
-#### Testar conexão com Redis
-
-```sh
-docker exec -it order-cache redis-cli
-set test_key "Hello, Redis!"
-get test_key
-```
-
 ## Executando Teste de Carga
 
 Para validar o desempenho da API de pedidos, execute o teste de carga:
