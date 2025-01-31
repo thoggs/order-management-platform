@@ -51,7 +51,7 @@ Os seguintes serviços Spring Boot são iniciados em background:
 - **Order Processor**: [sboot-order-processor](https://github.com/thoggs/sboot-order-processor)
 - **Order Dispatcher**: [sboot-order-dispatcher](https://github.com/thoggs/sboot-order-dispatcher)
 
-### 7. Acessos rápidos
+## Acessos rápidos
 
 #### RabbitMQ Management UI
 
@@ -92,24 +92,34 @@ Para validar o desempenho da API de pedidos, execute o teste de carga:
 2. Acesse o diretório do teste de carga:
 
    ```sh
-   cd order-load-test
+   cd py-order-burn-test
    ```
 
-3. Configure o ambiente virtual:
+3. Criar o ambiente virtual:
 
+   #### **Linux/macOS:**
+   ```sh
+   python -m venv venv
+   ```
+   Ou, se `python` não estiver disponível, use:
+   ```sh
+   python3 -m venv venv
+   ```
+
+   #### **Windows:**
    ```sh
    python -m venv venv
    ```
 
 4. Ative o ambiente virtual:
 
-   **Linux/macOS:**
+   #### **Linux/macOS:**
 
    ```sh
    source venv/bin/activate
    ```
 
-   **Windows (cmd/powershell):**
+   #### **Windows (cmd/powershell):**
 
    ```sh
    venv\Scripts\activate
