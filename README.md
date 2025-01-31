@@ -79,6 +79,16 @@ set test_key "Hello, Redis!"
 get test_key
 ```
 
+#### Swagger UI (Documentação da API)
+
+- URL: [http://localhost:8282/swagger-ui/index.html](http://localhost:8282/swagger-ui/index.html)
+
+Para acessar a documentação no idioma desejado, adicione `?lang=pt-BR` ao final da URL:
+
+```sh
+http://localhost:8282/swagger-ui/index.html?lang=pt-BR
+```
+
 ## Executando Teste de Carga
 
 Para validar o desempenho da API de pedidos, execute o teste de carga:
@@ -143,3 +153,4 @@ O script enviará múltiplas requisições simulando uma carga alta na API.
 
 O projeto está pronto para uso. Certifique-se de configurar corretamente todas as variáveis de ambiente antes de
 executar os containers.
+
