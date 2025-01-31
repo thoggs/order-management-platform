@@ -53,32 +53,6 @@ Os seguintes serviços Spring Boot são iniciados em background:
 
 ## Acessos rápidos
 
-#### RabbitMQ Management UI
-
-- URL: [http://localhost:15672](http://localhost:15672)
-- Usuário: `admin`
-- Senha: `secret`
-
-#### Banco de dados Order-DB
-
-```sh
-docker exec -it order-db psql -U order_user -d order_db
-```
-
-#### Banco de dados Dispatch-DB
-
-```sh
-docker exec -it dispatch-db psql -U dispatch_user -d dispatch_db
-```
-
-#### Testar conexão com Redis
-
-```sh
-docker exec -it order-cache redis-cli
-set test_key "Hello, Redis!"
-get test_key
-```
-
 #### Swagger UI (Documentação da API)
 
 - URL: [http://localhost:8282/swagger-ui/index.html](http://localhost:8282/swagger-ui/index.html)
@@ -87,6 +61,20 @@ Para acessar a documentação no idioma desejado, adicione `?lang=pt-BR` ao fina
 
 ```sh
 http://localhost:8282/swagger-ui/index.html?lang=pt-BR
+```
+
+#### RabbitMQ Management UI
+
+- URL: [http://localhost:15672](http://localhost:15672)
+- Usuário: `admin`
+- Senha: `secret`
+
+#### Testar conexão com Redis
+
+```sh
+docker exec -it order-cache redis-cli
+set test_key "Hello, Redis!"
+get test_key
 ```
 
 ## Executando Teste de Carga
