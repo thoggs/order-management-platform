@@ -24,23 +24,19 @@ escalabilidade e resiliência.
    cd order-management-platform
    ```
 
-### 3. Configurar variáveis de ambiente
-
-- Edite os arquivos em `environments/` para ajustar credenciais conforme necessário.
-
-### 4. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis)
+### 3. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis)
 
 ```sh
 docker compose -f docker-compose-infra.yml up -d
 ```
 
-### 5. Definir senha do RabbitMQ
+### 4. Definir senha do RabbitMQ
 
 ```sh
 docker exec -it order-message-broker rabbitmqctl change_password admin secret
 ```
 
-### 6. Subir os serviços da aplicação
+### 5. Subir os serviços da aplicação
 
 ```sh
 docker compose -f docker-compose-app.yml up -d
