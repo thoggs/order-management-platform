@@ -14,27 +14,33 @@ escalabilidade e resiliência.
 
 ### 1. Clonar o repositório
 
-```sh
-git clone https://github.com/thoggs/order-management-platform.git && cd order-management-platform
-```
+   ```sh
+   git clone https://github.com/thoggs/order-management-platform.git
+   ```
 
-### 2. Configurar variáveis de ambiente
+### 2. Acesse o diretório do projeto:
+
+   ```sh
+   cd order-management-platform
+   ```
+
+### 3. Configurar variáveis de ambiente
 
 - Edite os arquivos em `environments/` para ajustar credenciais conforme necessário.
 
-### 3. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis)
+### 4. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis)
 
 ```sh
 docker compose -f docker-compose-infra.yml up -d
 ```
 
-### 4. Definir senha do RabbitMQ
+### 5. Definir senha do RabbitMQ
 
 ```sh
 docker exec -it order-message-broker rabbitmqctl change_password admin secret
 ```
 
-### 5. Subir os serviços da aplicação
+### 6. Subir os serviços da aplicação
 
 ```sh
 docker compose -f docker-compose-app.yml up -d
@@ -45,7 +51,7 @@ Os seguintes serviços Spring Boot são iniciados em background:
 - **Order Processor**: [sboot-order-processor](https://github.com/thoggs/sboot-order-processor)
 - **Order Dispatcher**: [sboot-order-dispatcher](https://github.com/thoggs/sboot-order-dispatcher)
 
-### 6. Acessos rápidos
+### 7. Acessos rápidos
 
 #### RabbitMQ Management UI
 
@@ -72,6 +78,56 @@ docker exec -it order-cache redis-cli
 set test_key "Hello, Redis!"
 get test_key
 ```
+
+## Executando Teste de Carga
+
+Para validar o desempenho da API de pedidos, execute o teste de carga:
+
+1. Clone o repositório do teste de carga:
+
+   ```sh
+   git clone https://github.com/thoggs/py-order-burn-test.git
+   ```
+
+2. Acesse o diretório do teste de carga:
+
+   ```sh
+   cd order-load-test
+   ```
+
+3. Configure o ambiente virtual:
+
+   ```sh
+   python -m venv venv
+   ```
+
+4. Ative o ambiente virtual:
+
+   **Linux/macOS:**
+
+   ```sh
+   source venv/bin/activate
+   ```
+
+   **Windows (cmd/powershell):**
+
+   ```sh
+   venv\Scripts\activate
+   ```
+
+5. Instale as dependências:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+6. Execute o teste de carga:
+
+   ```sh
+   python burn_test.py
+   ```
+
+O script enviará múltiplas requisições simulando uma carga alta na API.
 
 ## Considerações Finais
 
