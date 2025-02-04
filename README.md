@@ -27,7 +27,7 @@ escalabilidade e resiliência.
 ### 3. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis) e os serviços da aplicação
 
    ```sh
-   docker compose docker-compose.yml up -d
+   docker compose up -d
    ```
 
 Os seguintes serviços Spring Boot são iniciados em background:
