@@ -24,16 +24,10 @@ escalabilidade e resiliência.
    cd order-management-platform
    ```
 
-### 3. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis)
+### 3. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis) e os serviços da aplicação
 
    ```sh
    docker compose -f docker-compose-infra.yml up -d
-   ```
-
-### 5. Subir os serviços da aplicação
-
-   ```sh
-   docker compose -f docker-compose-app.yml up -d
    ```
 
 Os seguintes serviços Spring Boot são iniciados em background:

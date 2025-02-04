@@ -49,6 +49,41 @@ services:
     networks:
       - order-network
 
+  sboot-order-processor:
+    container_name: sboot-order-processor
+    build:
+      context: https://github.com/thoggs/sboot-order-processor.git
+      args:
+        JAVA_VERSION: 21
+        GRADLE_VERSION: 8.11
+    ports:
+      - '8282:8080'
+    env_file:
+      - environments/order-processor.env
+    depends_on:
+      - order-db
+      - redis
+      - rabbitmq
+    networks:
+      - order-network
+
+  sboot-order-dispatcher:
+    container_name: sboot-order-dispatcher
+    build:
+      context: https://github.com/thoggs/sboot-order-dispatcher.git
+      args:
+        JAVA_VERSION: 21
+        GRADLE_VERSION: 8.11
+    ports:
+      - '8383:8080'
+    env_file:
+      - environments/order-dispatcher.env
+    depends_on:
+      - dispatch-db
+      - rabbitmq
+    networks:
+      - order-network
+
 networks:
   order-network:
     driver: bridge
