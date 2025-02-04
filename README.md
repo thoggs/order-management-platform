@@ -56,8 +56,8 @@ http://localhost:8282/swagger-ui/index.html?lang=pt-BR
 #### RabbitMQ Management UI
 
 - URL: [http://localhost:15672](http://localhost:15672)
-- Usuário: `admin`
-- Senha: `secret`
+  - Usuário: `admin`
+  - Senha: `secret`
 
 ## Executando Teste de Carga
 
