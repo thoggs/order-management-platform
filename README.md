@@ -26,21 +26,15 @@ escalabilidade e resiliência.
 
 ### 3. Subir a infraestrutura (RabbitMQ, PostgreSQL, Redis)
 
-```sh
-docker compose -f docker-compose-infra.yml up -d
-```
-
-### 4. Definir senha do RabbitMQ
-
-```sh
-docker exec -it order-message-broker rabbitmqctl change_password admin secret
-```
+   ```sh
+   docker compose -f docker-compose-infra.yml up -d
+   ```
 
 ### 5. Subir os serviços da aplicação
 
-```sh
-docker compose -f docker-compose-app.yml up -d
-```
+   ```sh
+   docker compose -f docker-compose-app.yml up -d
+   ```
 
 Os seguintes serviços Spring Boot são iniciados em background:
 
