@@ -51,13 +51,9 @@ services:
 
   sboot-order-processor:
     container_name: sboot-order-processor
-    build:
-      context: https://github.com/thoggs/sboot-order-processor.git
-      args:
-        JAVA_VERSION: 21
-        GRADLE_VERSION: 8.11
+    image: thoggs/sboot-order-processor:latest
     ports:
-      - '8282:8080'
+      - "8282:8080"
     env_file:
       - environments/order-processor.env
     depends_on:
@@ -69,13 +65,9 @@ services:
 
   sboot-order-dispatcher:
     container_name: sboot-order-dispatcher
-    build:
-      context: https://github.com/thoggs/sboot-order-dispatcher.git
-      args:
-        JAVA_VERSION: 21
-        GRADLE_VERSION: 8.11
+    image: thoggs/sboot-order-dispatcher:latest
     ports:
-      - '8383:8080'
+      - "8383:8080"
     env_file:
       - environments/order-dispatcher.env
     depends_on:
