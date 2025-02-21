@@ -51,7 +51,7 @@ services:
 
   sboot-order-processor:
     container_name: sboot-order-processor
-    image: thoggs/sboot-order-processor:latest
+    image: public.ecr.aws/n1a9j0r1/sboot-order-processor:latest
     ports:
       - "8282:8080"
     env_file:
@@ -65,7 +65,7 @@ services:
 
   sboot-order-dispatcher:
     container_name: sboot-order-dispatcher
-    image: thoggs/sboot-order-dispatcher:latest
+    image: public.ecr.aws/n1a9j0r1/sboot-order-dispatcher:latest
     ports:
       - "8383:8080"
     env_file:
